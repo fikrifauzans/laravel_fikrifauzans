@@ -13,7 +13,7 @@
                     dataType: "html",
                     success: function(response) {
                         $('.content').html(response)
-                        filterHospital()
+                        filterHospital();
                     }
                 });
 

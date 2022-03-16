@@ -19,14 +19,14 @@ class PatientController extends Controller
     {
         $hospitals = Hospital::all();
         if ($request['hospital_id'] !== null) {
-            $patients = Patient::where('hospital_id', '=', $request['hospital_id']);
+            $patients = Patient::where('hospital_id', '=', $request['hospital_id'])->get();
         } else {
-            $patients = Patient::latest();
+            $patients = Patient::latest()->paginate(10);
         }
         return view(
             'patientTable',
             [
-                'patients' => $patients->paginate(10),
+                'patients' => $patients,
                 'hospitals' => $hospitals
             ]
         );

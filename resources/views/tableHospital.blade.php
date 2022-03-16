@@ -33,7 +33,6 @@
          </tbody>
      </table>
 
-     <div class="row justify-content-center">{{ $hospitals->links() }}</div>
  </div>
 
  {{-- Create Modal --}}

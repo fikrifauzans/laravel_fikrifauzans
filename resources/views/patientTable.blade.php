@@ -54,5 +54,5 @@
         </tbody>
     </table>
 
-    <div class="row justify-content-center">{{ $patients->links() }}</div>
+
 </div>

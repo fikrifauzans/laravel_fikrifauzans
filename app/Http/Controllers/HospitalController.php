@@ -16,7 +16,7 @@ class HospitalController extends Controller
     }
     public function showTable(Request $request)
     {
-        $hospitals = Hospital::latest()->paginate(10);
+        $hospitals = Hospital::latest()->get();
         return view('tableHospital', compact('hospitals'));
     }
 
