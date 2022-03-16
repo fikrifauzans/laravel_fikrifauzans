@@ -21,7 +21,7 @@ class PatientController extends Controller
         if ($request['hospital_id'] !== null) {
             $patients = Patient::where('hospital_id', '=', $request['hospital_id'])->get();
         } else {
-            $patients = Patient::latest()->paginate(10);
+            $patients = Patient::latest()->get();
         }
         return view(
             'patientTable',
