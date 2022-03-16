@@ -15,10 +15,21 @@ class PatientController extends Controller
         return view('patient');
     }
 
-    public function showTable()
+    public function showTable(Request $request)
     {
-        $patients = Patient::latest()->paginate(10);
-        return view('patientTable', compact('patients'));
+        $hospitals = Hospital::all();
+        if ($request['hospital_id'] !== null) {
+            $patients = Patient::where('hospital_id', '=', $request['hospital_id']);
+        } else {
+            $patients = Patient::latest();
+        }
+        return view(
+            'patientTable',
+            [
+                'patients' => $patients->paginate(10),
+                'hospitals' => $hospitals
+            ]
+        );
     }
 
     public function create()

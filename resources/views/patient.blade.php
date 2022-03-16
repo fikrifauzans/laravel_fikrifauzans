@@ -4,6 +4,22 @@
 @endsection
 @push('js')
     <script>
+        function filterHospital() {
+            $('#selectHospital').on('change', function() {
+                $.ajax({
+                    type: "get",
+                    url: `{{ url('patient/show?hospital_id=') }} ` +
+                        $(this).val(),
+                    dataType: "html",
+                    success: function(response) {
+                        $('.content').html(response)
+                        filterHospital()
+                    }
+                });
+
+            })
+        }
+
         function show() {
             $.ajax({
                 type: "get",
@@ -15,6 +31,7 @@
                 },
                 success: function(response) {
                     $(".content").html(response);
+                    filterHospital()
                 }
             });
         }

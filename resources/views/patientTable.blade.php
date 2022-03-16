@@ -1,6 +1,25 @@
 <div class="container">
+    <div class="row justify-content-between">
+        <a href="{{ url('patient/create') }}" class="btn btn-success my-3 btn-create">+ create</a>
+        <form class="form-inline">
+            <div class="row">
+                <div>
+                    <button onclick="show()" class="btn btn-danger mr-3">x</button>
+                </div>
+            </div>
 
-    <a href="{{ url('patient/create') }}" class="btn btn-success my-3 btn-create">+ create</a>
+            <div>
+                <select class="custom-select" id="selectHospital">
+                    <option selected>Open this select menu</option>
+                    @foreach ($hospitals as $hospital)
+                        <option value="{{ $hospital->id }}">{{ $hospital->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+        </form>
+    </div>
+
     <table class="table">
         <thead>
             <tr>
