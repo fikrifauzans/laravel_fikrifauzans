@@ -41,7 +41,7 @@
                     <td>{{ $patient->address }}</td>
                     <td>{{ $patient->phone }}</td>
                     <td>{{ $patient->email }}</td>
-                    <td>{{ App\Models\Hospital::find($patient->hopital_id)->name ?? '' }}</td>
+                    <td>{{ $patient->hospital()->get()[0]->name ?? '' }}</td>
                     <td>
                         <small><button onclick="del({{ $patient->id }})"
                                 class="btn btn-danger p-1">delete</button></small>
