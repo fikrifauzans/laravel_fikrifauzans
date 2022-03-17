@@ -39,6 +39,7 @@
                     dataType: "json",
                     success: function(response) {
                         show()
+                        $('.show').remove()
                     }
                 });
 
